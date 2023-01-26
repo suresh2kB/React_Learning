@@ -1,12 +1,14 @@
 import Expenses from "./components/Expenses/Expenses";
 
+import NewExpense from "./components/NewExpense/NewExpense";
+
 function App() {
   const expenses = [
     {
       id: "1",
       title: "Car insurance",
       amount: "345.56",
-      date: new Date(2023, 2, 23),
+      date: new Date(2023, 2, 24),
     },
     {
       id: "2",
@@ -18,20 +20,26 @@ function App() {
       id: "3",
       title: "Jeep insurance",
       amount: "345.56",
-      date: new Date(2022, 2, 23),
+      date: new Date(2022, 9, 26),
     },
     {
       id: "4",
       title: "Bus insurance",
       amount: "345.56",
-      date: new Date(2026, 2, 23),
+      date: new Date(2026, 5, 12),
     },
   ];
+
+  const onAddExpenseHandler = (expense) => {
+    console.log("Received data!!!!");
+    console.log(expense);
+    expenses.push(expense);
+  };
+
   return (
     <div>
       <div>
-        <h2>Let's get started Suresh bhai baki sab thik</h2>
-        <h1>Hello</h1>
+        <NewExpense onAddExpense={onAddExpenseHandler}></NewExpense>
         <Expenses expenses={expenses}></Expenses>
       </div>
     </div>
